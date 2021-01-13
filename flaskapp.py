@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 #OAuth Variables
 client_id = '28bf5c72de76f94a5fb1d9454e347d4e'
+#Sanbox/test env so okay to store secret in repo but in production, wouldn't include actual secret value within repo
 client_secret = '3e9f2e9716dba6ec74a2e42e90974828'
 redirect_uri = 'http://3.140.199.135/callback'
 authorization_base_url = 'https://api.id.me/oauth/authorize'
