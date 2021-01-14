@@ -49,6 +49,7 @@ def profile():
     session['profile'] = 'true'
     json_payload = jsonify(payload)
     req_data = json_payload.get_json()
+    #Should include if statements with ['attributes']['handle'] for these in case order of the array changes down the line
     email = req_data['attributes'][0]['value']
     first_name = req_data['attributes'][1]['value']
     last_name = req_data['attributes'][2]['value']
@@ -56,11 +57,3 @@ def profile():
         Thank you {} {}!
         Your status has been verified with ID.me using the following email address:
         {}'''.format(first_name, last_name, email)
-
-if __name__ == "__main__":
-    # This allows us to use a plain HTTP callback
-    os.environ['DEBUG'] = "1"
-    os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
-
-    app.secret_key = os.urandom(24)
-    app.run(debug=True)
